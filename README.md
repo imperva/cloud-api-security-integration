@@ -36,7 +36,7 @@ For example:
 
 ```json
 {
-    "management_url":"my.incapsula.com",
+    "management_url":"my.imperva.com",
     "api_id":"12345",
     "api_key":"abcd1234",
     "site_id":"123456789"
@@ -157,6 +157,7 @@ Field | Description
 --- | ---
 ```aws_access_key_id``` | The access key for your AWS account
 ```aws_secret_access_key``` | The secret key for your AWS account
+```aws_region``` | The AWS region
 
 Example:
 
@@ -166,7 +167,8 @@ Example:
   "active":true,
   "settings":{
     "aws_access_key_id":"1234",
-    "aws_secret_access_key":"abcd1234"
+    "aws_secret_access_key":"abcd1234",
+    "aws_region":"eu-west-1"
   }
 }
 ```
@@ -185,7 +187,7 @@ Example:
   "api_id":"12345",
   "api_key":"abcd1234",
   "site_id":"123456789",
-  "management_url":"my.incapsula.com",
+  "management_url":"my.imperva.com",
   "fetchers":[
     {
       "type":"FileSystemFetcher",
@@ -217,7 +219,8 @@ Example:
       "active":true,
       "settings":{
         "aws_access_key_id":"1234",
-        "aws_secret_access_key":"abcd1234"
+        "aws_secret_access_key":"abcd1234",
+        "aws_region":"eu-west-1"
       }
     }
   ]
