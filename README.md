@@ -31,6 +31,7 @@ Field | Description
 ```api_id``` | The API ID for the Imperva management console
 ```api_key``` | The API Key for the Imperva management console
 ```site_id``` | The Imperva Cloud WAF site ID
+```default_action``` | The API Specification Violation Action. Valid values are "ALERT_ONLY", "BLOCK_REQUEST", "BLOCK_USER", "BLOCK_IP", "IGNORE"
 
 For example:
 
@@ -39,7 +40,8 @@ For example:
     "management_url":"my.imperva.com",
     "api_id":"12345",
     "api_key":"abcd1234",
-    "site_id":"123456789"
+    "site_id":"123456789",
+    "default_action":"BLOCK_REQUEST"
 }
 ```
 
@@ -188,6 +190,7 @@ Example:
   "api_key":"abcd1234",
   "site_id":"123456789",
   "management_url":"my.imperva.com",
+  "default_action":"BLOCK_REQUEST",
   "fetchers":[
     {
       "type":"FileSystemFetcher",

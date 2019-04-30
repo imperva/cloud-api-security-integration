@@ -26,9 +26,23 @@ class Config:
             config.LOG_LEVEL = self.config_json["logging"]["level"]
             config.STATUS_PATH = self.config_json["logging"]["status_path"]
             config.API_ID = self.config_json["api_id"]
+            if not config.API_ID:
+                raise Exception("api_id should not be empty")
             config.API_KEY = self.config_json["api_key"]
+            if not config.API_KEY:
+                raise Exception("api_key should not be empty")
             config.SITE_ID = self.config_json["site_id"]
+            if not config.SITE_ID:
+                raise Exception("site_id should not be empty")
             config.MANAGEMENT_URL = self.config_json["management_url"]
+            if not config.MANAGEMENT_URL:
+                raise Exception("management_url should not be empty")
+            config.DEFAULT_ACTION = self.config_json["default_action"]
+            if not config.DEFAULT_ACTION:
+                raise Exception("default_action should not be empty")
+            supported_actions = {"ALERT_ONLY", "BLOCK_REQUEST", "BLOCK_USER", "BLOCK_IP", "IGNORE"}
+            if config.DEFAULT_ACTION not in supported_actions:
+                raise Exception("default_action should be set to one of the following values - " + str(supported_actions))
             config.FETCHERS = self.config_json["fetchers"]
             return config
         except Exception as ex:
