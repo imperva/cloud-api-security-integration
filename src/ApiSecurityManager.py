@@ -174,7 +174,7 @@ class ApiSecurityManager:
         # set a log file for the API security manager
         logger = logging.getLogger("apiSecurityManager")
         formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-        if system_log_path is not None:
+        if system_log_path is not None and system_log_path:
             # default log directory for the API security manager
             log_dir = system_log_path
             # create the log directory if needed

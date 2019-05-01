@@ -59,7 +59,7 @@ class Status:
 
 
     def report_status(self, path):
-        if path is not None:
+        if path is not None and path:
             try:
                 if not os.path.exists(path):
                     os.makedirs(path)
