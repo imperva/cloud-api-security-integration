@@ -50,7 +50,7 @@ class ApiSecurityManager:
             self.delete_apis(fetched_api_specs)
             run_status = self.status.calculate_status()
             self.status.report_status(self.config.STATUS_PATH)
-            self.logger.info("Finished updating the API security manager - The status is %s", self.status.get_status())
+            self.logger.info("Finished updating the API security manager - The status is %s", json.dumps(self.status.get_status()))
             self.logger.info("Successfully finished running the API Security Manager")
             return run_status
 
