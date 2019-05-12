@@ -121,7 +121,7 @@ class ApiSecurityManager:
     def update_api(self, host_and_base_path, api_spec, api_spec_id):
         self.logger.debug("Trying to update the API spec %s for '%s'", api_spec_id, host_and_base_path)
         try:
-            response = requests.post(self.config.MANAGEMENT_URL + self.config.SITE_ID + "/" + str(api_spec_id) + ("?api_id=%s&api_key=%s" %(self.config.API_ID, self.config.API_KEY)), files=dict(fileContent=json.dumps(api_spec), validateHost=False, specificationViolationAction=self.config.DEFAULT_ACTION), timeout=10)
+            response = requests.post(self.config.MANAGEMENT_URL + self.config.SITE_ID + "/" + str(api_spec_id) + ("?api_id=%s&api_key=%s" %(self.config.API_ID, self.config.API_KEY)), files=dict(apiSpecification=json.dumps(api_spec), validateHost=False, specificationViolationAction=self.config.DEFAULT_ACTION), timeout=10)
             if response.status_code != 200:
                 self.logger.error("Failed to update the API spec %s for '%s'.\nResponse code is %d, %s\nInfo is '%s'",api_spec_id, host_and_base_path, response.status_code, response.reason, response.text)
                 self.status.update_api_error("updated", host_and_base_path)
@@ -136,7 +136,7 @@ class ApiSecurityManager:
     def upload_api(self, host_and_base_path, api_spec):
         self.logger.debug("Trying to upload the API spec '%s'", host_and_base_path)
         try:
-            response = requests.post(self.config.MANAGEMENT_URL + self.config.SITE_ID + ("?api_id=%s&api_key=%s" %(self.config.API_ID, self.config.API_KEY)), files=dict(fileContent=json.dumps(api_spec), validateHost=False, specificationViolationAction=self.config.DEFAULT_ACTION), timeout=10)
+            response = requests.post(self.config.MANAGEMENT_URL + self.config.SITE_ID + ("?api_id=%s&api_key=%s" %(self.config.API_ID, self.config.API_KEY)), files=dict(apiSpecification=json.dumps(api_spec), validateHost=False, specificationViolationAction=self.config.DEFAULT_ACTION), timeout=10)
             if response.status_code != 200:
                 self.logger.error("Failed to upload the API spec '%s'.\nResponse code is %d, %s\nInfo is '%s'", host_and_base_path, response.status_code, response.reason, response.text)
                 self.status.update_api_error("added", host_and_base_path)
