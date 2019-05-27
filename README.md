@@ -1,6 +1,6 @@
 # Imperva Cloud API Security Integration
 
-Imperva Cloud API Security Integration is a tool that provides easy integration with the Imperva Cloud API Security solution to protect APIs that are managed with different API management platforms. 
+Imperva Cloud API Security Integration is a tool that provides easy integration with the Imperva API Security solution to protect APIs that are managed with different API management platforms.
 
 The tool includes predefined integrations with the following API management platforms:
 * Red Hat 3scale API Management
@@ -27,7 +27,7 @@ The configuration contains the following sections:
 
 Field | Description
 --- | ---
-```management_url``` | The Imperva management console URL
+```management_url``` | The Imperva API Security URL
 ```api_id``` | The API ID for the Imperva management console
 ```api_key``` | The API Key for the Imperva management console
 ```site_id``` | The Imperva Cloud WAF site ID
@@ -37,7 +37,7 @@ For example:
 
 ```json
 {
-    "management_url":"my.imperva.com",
+    "management_url":"https://api.imperva.com/api-security/api/",
     "api_id":"12345",
     "api_key":"abcd1234",
     "site_id":"123456789",
@@ -189,7 +189,7 @@ Example:
   "api_id":"12345",
   "api_key":"abcd1234",
   "site_id":"123456789",
-  "management_url":"my.imperva.com",
+  "management_url":"https://api.imperva.com/api-security/api/",
   "default_action":"BLOCK_REQUEST",
   "fetchers":[
     {

@@ -7,7 +7,7 @@
   "api_id":"12345",
   "api_key":"abcd1234",
   "site_id":"123456789",
-  "management_url":"my.imperva.com",
+  "management_url":"https://api.imperva.com/api-security/api/",
   "default_action":"BLOCK_REQUEST",
   "fetchers":[
     {
